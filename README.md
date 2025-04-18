@@ -1,64 +1,659 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-    <title>Olivia Portfolio</title>
+    <title>Arjun Lal S | IT Professional - Hospitality Specialist</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        .experience-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--secondary);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .experience-title h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .experience-company {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .experience-date {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        .experience-description {
+            margin-bottom: 1rem;
+        }
+        
+        .accomplishments {
+            margin-top: 1rem;
+        }
+        
+        .accomplishments h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .accomplishments ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        .accomplishments li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .education-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .education-title h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .education-institution {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .education-date {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-card p {
+            color: var(--gray);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Olivia <span>Kate</span>
+    <header>
+        <div class="container header-content">
+            <img src="https://via.placeholder.com/150" alt="Arjun Lal S" class="profile-img">
+            <h1>Arjun Lal S</h1>
+            <p class="tagline">IT Professional | Hospitality Technology Specialist</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Al Mulla Building, AL Nahda-1, Dubai, UAE</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>46arjunlal@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+971 525 623 733</span>
+                </div>
             </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="#">Services</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#">Contact</a></div>
         </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-        <div class="dropdown">
-            <div class="links">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Skills</a>
-                <a href="#">Service</a>
-                <a href="#">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">ARJUN LAL S</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
-    <section>
-        <div class="main-container">
-            <div class="image" data-aos="zoom-out" data-aos-duration="3000">
-                <img src="main.png" alt="">
+    
+    <section id="about" class="container">
+        <div class="section-title">
+            <h2>Personal Profile</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Results-driven IT professional with extensive experience in systems and network management, specializing in the hospitality industry. Proven ability to lead complex IT projects, implement innovative solutions, and maintain robust IT infrastructure. Seeking to leverage expertise in IT operations and strategic planning to drive efficiency and enhance guest experiences in a dynamic organization.</p>
             </div>
-            <div class="content">
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey I'm <span>Olivia</span></h1>
-                <div class="typewriter" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quasi commodi quia rerum, iste corporis expedita in excepturi nesciunt repellendus quisquam amet provident ad mollitia debitis odit voluptatem necessitatibus tempora.</p>
-                <div class="social-links">
-                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
-                    <button>Hire me</button>
+            <div class="skills">
+                <div class="skill-category">
+                    <h3>Key Competencies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Attention to Detail</span>
+                        <span class="skill-tag">Client Servicing</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">Initiative-Driven</span>
+                        <span class="skill-tag">Technology Knowledge</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Problem-Solving</span>
+                        <span class="skill-tag">Innovative Thinking</span>
+                        <span class="skill-tag">Operations Management</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({offset:0});
-    </script>
-    <script src="script.js"></script>
+    
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>IT Services Specialist</h3>
+                        <p class="experience-company">Holiday Inn Express Dubai Airport</p>
+                    </div>
+                    <div class="experience-date">2023 - Present</div>
+                </div>
+                <div class="experience-description">
+                    <p>IHG Hotel Experience offers 382+ rooms for modern travelers, prioritizing seamless experiences with advanced IT services. From fast internet to hassle-free check-ins via mobile apps or kiosks, connectivity and convenience are paramount. Smart room customization and integrated multimedia enhance entertainment. Equipped centers and high-tech meeting spaces cater to business travelers, with robust security ensuring guest privacy.</p>
+                </div>
+                <div class="accomplishments">
+                    <h4>Key Accomplishments:</h4>
+                    <ul>
+                        <li>Led IT projects that improved operational efficiency, directly impacting over 382+ rooms by implementing advanced IT systems, reducing check-in times by 20%.</li>
+                        <li>Responsible for maintenance and backup of the IT system, network administration, and user account management.</li>
+                        <li>Diagnose and resolve technical issues reported by hotel staff or guests in a timely manner to minimize disruptions to operations.</li>
+                        <li>Implement and maintain security protocols to protect the hotel's IT infrastructure from cyber threats.</li>
+                        <li>Negotiated software support contracts, achieving a 15% reduction in annual IT maintenance costs.</li>
+                        <li>Installation, configuration and troubleshooting of hospitality software (Opera PMS, Micros POS, FMC, Sunsystems, etc.).</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Information Technology Officer</h3>
+                        <p class="experience-company">Mangrove Hotel, Ras Al Khaimah</p>
+                    </div>
+                    <div class="experience-date">Nov 2021 - Apr 2023</div>
+                </div>
+                <div class="experience-description">
+                    <p>Mangrove Hotel Experience boasts a diverse range of 172+ rooms tailored to meet the needs of contemporary travelers. Proven to handle IT department alone with keen observation and planning. This tech-centric approach ensures seamless guest experiences, with advanced IT services underpinning connectivity and convenience.</p>
+                </div>
+                <div class="accomplishments">
+                    <h4>Key Accomplishments:</h4>
+                    <ul>
+                        <li>Overall In-charge for IT operations in the company, handling all aspects of IT infrastructure.</li>
+                        <li>Set up user accounts on the Active directory and ensuring security by implementing Group Policies.</li>
+                        <li>Maintained & Troubleshot CCTV & NVR systems, Door Lock Software & Devices.</li>
+                        <li>Configured and Maintained Business Email Accounts & installed Outlook in client PCs.</li>
+                        <li>Provided training and technical guidance to hotel staff on the proper use of IT systems.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Information Technology Officer</h3>
+                        <p class="experience-company">TechSavvyIT Solutions, India</p>
+                    </div>
+                    <div class="experience-date">Dec 2018 - Dec 2020</div>
+                </div>
+                <div class="experience-description">
+                    <p>Techsavy IT Solutions is a leading provider of comprehensive solutions tailored for the hospitality industry. Offering cutting-edge technology and services, they specialize in enhancing guest experiences, streamlining operations, and maximizing efficiency for hotels, resorts, and other hospitality businesses.</p>
+                </div>
+                <div class="accomplishments">
+                    <h4>Key Accomplishments:</h4>
+                    <ul>
+                        <li>Ensured routine/preventative maintenance on servers and hardware was carried out and logged accordingly.</li>
+                        <li>Responsible for managing total IT infrastructure including IT Staff, Networks and all other IT systems.</li>
+                        <li>Worked with Video and Audio Conference Systems and Windows Server installation/maintenance.</li>
+                        <li>Responsible for multiple IT projects that impact the department or IT function.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>System Administrator</h3>
+                        <p class="experience-company">The Leela Ashtamudi - A Raviz Hotel</p>
+                    </div>
+                    <div class="experience-date">Aug 2015 - Dec 2018</div>
+                </div>
+                <div class="experience-description">
+                    <p>The Leela ASHTAMUDI is a luxurious five-star hotel nestled along the serene backwaters of Kerala, India. Boasting unparalleled elegance and world-class amenities, it offers guests an opulent retreat infused with traditional charm and modern sophistication.</p>
+                </div>
+                <div class="accomplishments">
+                    <h4>Key Accomplishments:</h4>
+                    <ul>
+                        <li>Managed local and networking printers, resort WiFi upgradation and migration to Windows 10.</li>
+                        <li>Configuration and installation in eSSL Biometric Attendance System.</li>
+                        <li>Ensured consistently strong operational support for all internal hotel IT systems and users.</li>
+                        <li>Developed and implemented information security policies and protocols.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Certifications</h2>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-title">
+                        <h3>Bachelor of Engineering</h3>
+                        <p class="education-institution">Anna University, Chennai-India</p>
+                    </div>
+                    <div class="education-date">2011 - 2015</div>
+                </div>
+                <p>Electronics and Communication Engineering</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-title">
+                        <h3>ITIL V4 in IT Service Management</h3>
+                        <p class="education-institution">PeopleCert</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-title">
+                        <h3>Cisco Certified Network Associate</h3>
+                        <p class="education-institution">Network Systemz- India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects Completed</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Implementation of Infrasys from Micros 9700</h3>
+                    <p>14 workstation migration project with admin/guest network restructuring.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Implementation of Cisco Meraki X 84</h3>
+                    <p>Network infrastructure upgrade from Fortinet 100e.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Implementation of Backup Solution</h3>
+                    <p>Designed and implemented comprehensive backup system for hotel operations.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Implementation of Bellinta interface</h3>
+                    <p>For IHG Connect system integration.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Implementation of Aruba HP network</h3>
+                    <p>Network infrastructure migration from Cisco systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <p>I'm always interested in hearing about new opportunities in hospitality IT management.</p>
+                <p>Feel free to reach out if you'd like to connect!</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="mailto:46arjunlal@gmail.com" style="display: inline-block; background-color: var(--secondary); color: white; padding: 0.8rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 500; transition: background-color 0.3s;">Contact Me</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-content">
+            <h3>Arjun Lal S</h3>
+            <p>IT Professional | Hospitality Technology Specialist</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">© 2023 Arjun Lal S. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
