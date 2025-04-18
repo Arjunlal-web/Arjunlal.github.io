@@ -1,9 +1,10 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arjun Lal S | IT Professional - Hospitality Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary: #2c3e50;
@@ -371,6 +372,7 @@
             font-size: 0.9rem;
         }
         
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -388,9 +390,33 @@
             .about-content {
                 flex-direction: column;
             }
+            
+            .experience-header, .education-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .experience-item, .education-item {
+                padding: 1.5rem;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -451,6 +477,21 @@
                         <span class="skill-tag">Operations Management</span>
                     </div>
                 </div>
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Network Administration</span>
+                        <span class="skill-tag">IT Infrastructure</span>
+                        <span class="skill-tag">System Security</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Hotel PMS (Opera, Micros)</span>
+                        <span class="skill-tag">POS Systems</span>
+                        <span class="skill-tag">CCTV/NVR Systems</span>
+                        <span class="skill-tag">PABX Systems</span>
+                        <span class="skill-tag">ITIL Framework</span>
+                        <span class="skill-tag">Cisco Networking</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -504,6 +545,8 @@
                         <li>Maintained & Troubleshot CCTV & NVR systems, Door Lock Software & Devices.</li>
                         <li>Configured and Maintained Business Email Accounts & installed Outlook in client PCs.</li>
                         <li>Provided training and technical guidance to hotel staff on the proper use of IT systems.</li>
+                        <li>Maintained and monitored antivirus protection across all systems.</li>
+                        <li>Performed Duty Manager responsibilities for hotel operations.</li>
                     </ul>
                 </div>
             </div>
@@ -526,6 +569,7 @@
                         <li>Responsible for managing total IT infrastructure including IT Staff, Networks and all other IT systems.</li>
                         <li>Worked with Video and Audio Conference Systems and Windows Server installation/maintenance.</li>
                         <li>Responsible for multiple IT projects that impact the department or IT function.</li>
+                        <li>Addressed customer issues and resolved incidents to provide superior service.</li>
                     </ul>
                 </div>
             </div>
@@ -548,6 +592,8 @@
                         <li>Configuration and installation in eSSL Biometric Attendance System.</li>
                         <li>Ensured consistently strong operational support for all internal hotel IT systems and users.</li>
                         <li>Developed and implemented information security policies and protocols.</li>
+                        <li>Provided leadership in delivering responsive and effective IT support services.</li>
+                        <li>Troubleshot issues related to PABX systems.</li>
                     </ul>
                 </div>
             </div>
